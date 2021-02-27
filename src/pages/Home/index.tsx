@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 
-import Menu from "../../components/Menu1";
-import Header from "../../components/Header1";
-import Footer from "../../components/Footer1";
+import Menu from "../../components/Menu";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 import TableItem from "./TableItem";
 
