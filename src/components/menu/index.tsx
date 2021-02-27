@@ -15,7 +15,7 @@ const menuList: IMenu[] = [
 ];
 
 export default function Menu() {
-  let [profileMenu, setProfileMenu] = useState(false);
+  let [profileMenu, _] = useState(false);
 
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
@@ -63,7 +63,7 @@ export default function Menu() {
               {
                 menuList.map((m: IMenu, index: number) => {
                   return (
-                    <Link to="" className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${index == 0 ? "bg-gray-200" : "text-gray-700"}`}>
+                    <Link to="" key={m.text} className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${index == 0 ? "bg-gray-200" : "text-gray-700"}`}>
                       <m.icon className="text-gray-500 mr-3 h-6 w-6" />
                       {m.text}
                     </Link>
