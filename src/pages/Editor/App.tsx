@@ -1,8 +1,6 @@
 import React from 'react';
 import { Graph, Shape, Edge, NodeView } from '@antv/x6';
 
-import './App.postcss';
-
 class MyShape extends Shape.Rect {
   getInPorts() {
     return this.getPortsByGroup('in');

@@ -1,8 +1,8 @@
+import { IconType } from "react-icons";
 import { useRef, useState } from "react";
+import { useClickAway } from 'react-use';
 import { AiOutlineMore } from "react-icons/ai";
 import { AiOutlineCopy, AiOutlineEdit, AiOutlineDelete, AiOutlineShareAlt } from "react-icons/ai";
-import { IconType } from "react-icons";
-import { useClickAway } from 'react-use';
 
 interface IMenu {
   text: string;

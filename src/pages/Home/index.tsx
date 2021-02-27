@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-// import { Link } from 'react-router-dom';
 import axios from "axios";
 
-import Menu from "../../components/menu";
-import Header from "../../components/header";
+import Menu from "../../components/Menu1";
+import Header from "../../components/Header1";
+import Footer from "../../components/Footer1";
 
 import TableItem from "./TableItem";
 
@@ -16,7 +16,6 @@ export default function Home() {
     axios.get('http://127.0.0.1:3001/projects')
       .then((response) => {
         if (response.status === 200) {
-          console.log(response.data as IProject[]);
           setProjectList(response.data as IProject[]);
         }
       });
@@ -56,6 +55,7 @@ export default function Home() {
               </div>
             </div>
           </main>
+          <Footer />
         </div>
       </div>
     </Fragment >
