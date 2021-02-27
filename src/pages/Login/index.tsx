@@ -1,4 +1,5 @@
 import { AiOutlineTwitter, AiOutlineGithub } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -40,9 +41,9 @@ export default function Login() {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link to="" className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
 

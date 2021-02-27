@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineHome, AiOutlineMenu, AiOutlineClockCircle } from "react-icons/ai";
 import { IconType } from "react-icons";
+import { useClickAway } from 'react-use';
 
 interface IMenu {
   text: string;
@@ -15,7 +16,14 @@ const menuList: IMenu[] = [
 ];
 
 export default function Menu() {
-  let [profileMenu, _] = useState(false);
+  let [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;;
+  useClickAway(ref, () => {
+    if (showProfileMenu) {
+      setShowProfileMenu(!showProfileMenu);
+    }
+  });
 
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
@@ -24,9 +32,9 @@ export default function Menu() {
           <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg" alt="Workflow" />
         </div>
         <div className="h-0 flex-1 flex flex-col overflow-y-auto">
-          <div className="px-3 mt-6 relative inline-block text-left">
+          <div className="px-3 mt-6 relative inline-block text-left" ref={ref}>
             <div>
-              <button type="button" className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500" id="options-menu" aria-haspopup="true">
+              <button type="button" className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500" id="options-menu" aria-haspopup="true" onClick={() => { setShowProfileMenu(!showProfileMenu) }}>
                 <span className="flex w-full justify-between items-center">
                   <span className="flex min-w-0 items-center justify-between space-x-3">
                     <img className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=256&amp;h=256&amp;q=80" alt="" />
@@ -41,19 +49,19 @@ export default function Menu() {
                 </span>
               </button>
             </div>
-            <div className={profileMenu ? "" : "hidden"}>
+            <div className={showProfileMenu ? "" : "hidden"}>
               <div className="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">View profile</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Notifications</a>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">View profile</div>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</div>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Notifications</div>
                 </div>
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Get desktop app</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Support</a>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Get desktop app</div>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Support</div>
                 </div>
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Logout</a>
+                  <div className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Logout</div>
                 </div>
               </div>
             </div>
@@ -63,7 +71,7 @@ export default function Menu() {
               {
                 menuList.map((m: IMenu, index: number) => {
                   return (
-                    <Link to="" key={m.text} className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${index == 0 ? "bg-gray-200" : "text-gray-700"}`}>
+                    <Link to="" key={m.text} className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${index === 0 ? "bg-gray-200" : "text-gray-700"}`}>
                       <m.icon className="text-gray-500 mr-3 h-6 w-6" />
                       {m.text}
                     </Link>
@@ -76,26 +84,26 @@ export default function Menu() {
                 Teams
             </h3>
               <div className="mt-1 space-y-1" role="group" aria-labelledby="teams-headline">
-                <a href="#" className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
                   <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Engineering
-                </span>
-                </a>
+                  </span>
+                </div>
 
-                <a href="#" className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
                   <span className="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Human Resources
                 </span>
-                </a>
+                </div>
 
-                <a href="#" className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
                   <span className="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Customer Success
-                </span>
-                </a>
+                  </span>
+                </div>
               </div>
             </div>
           </nav>
