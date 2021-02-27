@@ -1,5 +1,11 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Graph, Shape, Edge, NodeView } from '@antv/x6';
+
+import { Helmet } from "react-helmet";
+
+import Menu from "../../components/Menu";
+import Header from "../../components/Header";
 
 class MyShape extends Shape.Rect {
   getInPorts() {
@@ -100,76 +106,6 @@ MyShape.config({
   ],
 });
 
-
-const data = {
-  // 节点
-  nodes: [
-    {
-      id: 'node1',
-      x: 40,
-      y: 40,
-      width: 160,
-      height: 80,
-      label: 'Hello',
-      ports: {
-        groups: {
-          in: {
-            position: 'left',
-            attrs: {
-              circle: {
-                r: 6,
-                magnet: true,
-                stroke: '#31d0c6',
-                strokeWidth: 2,
-                fill: '#fff',
-              },
-            },
-          },
-          // 输出链接桩群组定义
-          out: {
-            position: 'right',
-            attrs: {
-              circle: {
-                r: 6,
-                magnet: true,
-                stroke: '#31d0c6',
-                strokeWidth: 2,
-                fill: '#fff',
-              },
-            },
-          },
-        },
-        items: [
-          {
-            id: 'port1',
-            group: 'in',
-          },
-          {
-            id: 'port2',
-            group: 'out',
-          },
-        ],
-      },
-    },
-
-    {
-      id: 'node2',
-      x: 160,
-      y: 180,
-      width: 80,
-      height: 40,
-      label: 'World',
-    },
-  ],
-  // 边
-  edges: [
-    {
-      source: 'node1',
-      target: 'node2',
-    },
-  ],
-}
-
 const magnetAvailabilityHighlighter = {
   name: 'stroke',
   args: {
@@ -180,7 +116,7 @@ const magnetAvailabilityHighlighter = {
   },
 };
 
-export default class Example extends React.Component {
+export default class Editor extends React.Component {
   private graph: Graph | null;
 
   constructor(props: any) {
@@ -310,9 +246,23 @@ export default class Example extends React.Component {
 
   render() {
     return (
-      <div className="container h-screen">
-        <div className="" id="container" />
+      <div className="h-screen flex overflow-hidden bg-white">
+        <Helmet>
+          <title>Workflow - Editor</title>
+        </Helmet>
+        <Menu />
+        <div className="flex flex-col w-0 flex-1 overflow-hidden">
+          <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
+            <Header title="Editor" props={
+              <>
+                <button type="button" className="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">Save</button>
+                <Link to="/" className="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">Save & Exit</Link>
+              </>
+            } />
+            <div className="" id="container" />
+          </main>
+        </div>
       </div>
-    )
+    );
   }
 }
