@@ -43,15 +43,15 @@ export default function Footer() {
           </div>
         </nav>
         <div className="mt-8 flex justify-center space-x-6">
-          <Link to="" className="text-gray-400 hover:text-gray-500">
+          <a href="https://twitter.com/itosone" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-500">
             <span className="sr-only">Twitter</span>
             <AiOutlineTwitter className="h-6 w-6" />
-          </Link>
+          </a>
 
-          <Link to="" className="text-gray-400 hover:text-gray-500">
+          <a href="https://github.com/workerflow/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-500">
             <span className="sr-only">GitHub</span>
             <AiOutlineGithub className="h-6 w-6" />
-          </Link>
+          </a>
 
         </div>
         <p className="mt-8 text-center text-sm text-gray-400">

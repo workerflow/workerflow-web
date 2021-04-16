@@ -39,8 +39,7 @@ export default function Menu() {
                   <span className="flex min-w-0 items-center justify-between space-x-3">
                     <img className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=256&amp;h=256&amp;q=80" alt="" />
                     <span className="flex min-w-0 flex-col">
-                      <span className="text-gray-900 text-sm font-medium truncate">Jessy Schwarz</span>
-                      <span className="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                      <span className="text-gray-900 text-sm font-medium truncate">Tosone</span>
                     </span>
                   </span>
                   <svg className="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/selector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -84,21 +83,21 @@ export default function Menu() {
                 Teams
             </h3>
               <div className="mt-1 space-y-1" role="group" aria-labelledby="teams-headline">
-                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 cursor-pointer">
                   <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Engineering
                   </span>
                 </div>
 
-                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 cursor-pointer">
                   <span className="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Human Resources
                 </span>
                 </div>
 
-                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 cursor-pointer">
                   <span className="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Customer Success
