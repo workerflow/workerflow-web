@@ -17,6 +17,7 @@ const menuList: IMenu[] = [
 
 export default function Menu() {
   let [showProfileMenu, setShowProfileMenu] = useState(false);
+  let [menuActive, setMenuActive] = useState(menuList[0].text);
 
   const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;;
   useClickAway(ref, () => {
@@ -68,9 +69,11 @@ export default function Menu() {
           <nav className="px-3 mt-6">
             <div className="space-y-1">
               {
-                menuList.map((m: IMenu, index: number) => {
+                menuList.map(m => {
                   return (
-                    <Link to="" key={m.text} className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${index === 0 ? "bg-gray-200" : "text-gray-700"}`}>
+                    <Link to="" key={m.text} className={`text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md ${menuActive === m.text ? "bg-gray-200" : "text-gray-700"}`} onClick={() => {
+                      setMenuActive(m.text);
+                    }}>
                       <m.icon className="text-gray-500 mr-3 h-6 w-6" />
                       {m.text}
                     </Link>
