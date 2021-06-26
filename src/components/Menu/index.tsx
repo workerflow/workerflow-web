@@ -84,7 +84,7 @@ export default function Menu() {
             <div className="mt-8">
               <h3 className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
                 Teams
-            </h3>
+              </h3>
               <div className="mt-1 space-y-1" role="group" aria-labelledby="teams-headline">
                 <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 cursor-pointer">
                   <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
@@ -97,7 +97,7 @@ export default function Menu() {
                   <span className="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
                   <span className="truncate">
                     Human Resources
-                </span>
+                  </span>
                 </div>
 
                 <div className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 cursor-pointer">
